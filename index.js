@@ -1,8 +1,11 @@
 'use strict';
-module.exports = function iterableReExec(re, str) {
+var cloneRegexp = require('clone-regexp');
+
+module.exports = function iterableReExec(input, str) {
 	var ret = {};
 
 	ret[Symbol.iterator] = function () {
+		var re = cloneRegexp(input);
 		var nextMatch = re.exec(str);
 
 		return {
