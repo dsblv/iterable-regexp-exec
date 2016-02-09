@@ -24,7 +24,7 @@ test('no matches', t => {
 test('capture group', t => {
 	const res = fn(/sup, (.*)!/, 'sup, dawg!');
 
-	const {value} = res.next();
+	const value = [...res][0];
 
 	t.is(value[1], 'dawg');
 });

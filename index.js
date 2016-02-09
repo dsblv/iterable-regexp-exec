@@ -1,12 +1,24 @@
 'use strict';
-module.exports = function * iterableReExec(re, str) {
-	var match = re.exec(str);
+module.exports = function iterableReExec(re, str) {
+	var ret = {};
 
-	if (match) {
-		yield match;
+	ret[Symbol.iterator] = function () {
+		var nextMatch = re.exec(str);
 
-		if (re.global) {
-			yield* iterableReExec(re, str);
-		}
-	}
+		return {
+			next: function () {
+				var match = nextMatch;
+
+				if (match) {
+					nextMatch = re.global ? re.exec(str) : null;
+
+					return {done: false, value: match};
+				}
+
+				return {done: true};
+			}
+		};
+	};
+
+	return ret;
 };
