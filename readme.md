@@ -2,6 +2,8 @@
 
 > [Iterable interface] for RegExp.prototype.exec()
 
+Compatible with multiple other ES2015 features (e.g. `spread operator`, `Array.from()`, `for..of`).
+
 [Iterable interface]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterable
 
 ## Install
@@ -29,7 +31,7 @@ const res = iterableRegexpExec(/[unicorns]/g, 'rainbows');
 
 Yields [`regexp.exec(string)`] once per iteration.
 
-[`regexp.exec(string)`]: https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
+[`regexp.exec(string)`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec
 
 #### regexp
 
