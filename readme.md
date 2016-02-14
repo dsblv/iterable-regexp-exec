@@ -40,7 +40,7 @@ Type: `regexp`
 
 #### string
 
-Type: `boolean`
+Type: `string`
 
 
 ## License
